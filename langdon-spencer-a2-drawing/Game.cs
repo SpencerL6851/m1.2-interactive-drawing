@@ -37,12 +37,13 @@ namespace MohawkGame2D
         public void Update()
         {
             Window.ClearBackground(80);
-
+            
+            
             if (isFollowing) { targetPos = Input.GetMousePosition(); } // Getting the mouse position if the drone is supposed to follow it.
 
 
             // Doing physics to calculate the acceleration, velocity, and updated position of the drone.
-            accel = Vector2.Normalize(targetPos - dronePos) * 7f - (vel * 0.025f);
+            accel = Vector2.Normalize(targetPos - dronePos) * 10f - (vel * 0.025f);
             vel += accel;
             Vector2.Clamp(vel, new Vector2(-maxSpeed), new Vector2(maxSpeed));
             dronePos += (vel + (0.5f * accel)) * Time.DeltaTime;
@@ -53,10 +54,11 @@ namespace MohawkGame2D
 
             Draw.SetFillColor(128);
             // Drawing drone wings.
-            Draw.Rectangle(droneX - 45, droneY - 35, 15, 65);
+            Draw.Quad(new Vector2(droneX - 45, droneY - 35), new Vector2(droneX - 30, droneY - 35), new Vector2(droneX - 30, droneY + 30), new Vector2(droneX - 45, droneY + 30));
             Draw.Quad(new Vector2(droneX - 25, droneY - 35), new Vector2(droneX - 20, droneY), new Vector2(droneX - 50, droneY), new Vector2(droneX - 50, droneY - 10));
             Draw.Triangle(new Vector2(droneX - 50, droneY), new Vector2(droneX - 25, droneY + 50), new Vector2(droneX - 20, droneY));
-            Draw.Rectangle(droneX + 30, droneY - 35, 15, 65);
+            
+            Draw.Quad(new Vector2(droneX + 30, droneY - 35), new Vector2(droneX + 45, droneY - 35), new Vector2(droneX + 45, droneY + 30), new Vector2(droneX + 30, droneY + 30));
             Draw.Quad(new Vector2(droneX + 25, droneY - 35), new Vector2(droneX + 20, droneY), new Vector2(droneX + 50, droneY), new Vector2(droneX + 50, droneY - 10));
             Draw.Triangle(new Vector2(droneX + 50, droneY), new Vector2(droneX + 25, droneY + 50), new Vector2(droneX + 20, droneY));
 
@@ -78,6 +80,7 @@ namespace MohawkGame2D
                 Draw.SetFillColor(Color.Red);
                 Draw.Circle(targetPos, 5);
             }
+            
         }
     }
 
