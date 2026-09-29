@@ -74,9 +74,9 @@ namespace MohawkGame2D
             Draw.Circle(droneX, droneY, 25);
             
             // Drawing drone eye.
-            Draw.SetFillColor(144);
-            Draw.Circle(droneX, droneY, 15);
             Draw.SetFillColor(196);
+            Draw.Circle(droneX, droneY, 15);
+            Draw.SetFillColor(32);
             Draw.Circle(droneX, droneY, 5);
 
             if (!isFollowing) // Drawing target at the target position if the drone isn't following the mouse.
