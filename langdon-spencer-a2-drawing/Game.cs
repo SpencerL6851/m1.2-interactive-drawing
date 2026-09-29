@@ -65,14 +65,16 @@ namespace MohawkGame2D
             Draw.Triangle(new Vector2(droneX + 50, droneY), new Vector2(droneX + 25, droneY + 50), new Vector2(droneX + 20, droneY));
 
             // Drawing drone main body.
+            Draw.SetFillColor(96);
             Draw.Quad(new Vector2(droneX, droneY - 20), new Vector2(droneX + 20, droneY - 25), new Vector2(droneX + 25, droneY), new Vector2(droneX, droneY + 5));
             Draw.Quad(new Vector2(droneX, droneY - 20), new Vector2(droneX - 20, droneY - 25), new Vector2(droneX - 25, droneY), new Vector2(droneX, droneY + 5));
             Draw.Triangle(new Vector2(droneX + 25, droneY), new Vector2(droneX + 15, droneY + 35), new Vector2(droneX, droneY + 5));
             Draw.Triangle(new Vector2(droneX - 25, droneY), new Vector2(droneX - 15, droneY + 35), new Vector2(droneX, droneY + 5));
+            Draw.SetFillColor(128);
             Draw.Circle(droneX, droneY, 25);
             
             // Drawing drone eye.
-            Draw.SetFillColor(32);
+            Draw.SetFillColor(144);
             Draw.Circle(droneX, droneY, 15);
             Draw.SetFillColor(196);
             Draw.Circle(droneX, droneY, 5);
