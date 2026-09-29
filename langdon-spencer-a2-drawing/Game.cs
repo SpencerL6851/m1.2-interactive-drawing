@@ -52,6 +52,7 @@ namespace MohawkGame2D
 
             if (Input.IsMouseButtonPressed(0)) { isFollowing = !isFollowing; } // Toggles follow mode on click.
 
+            Draw.SetLineColor(0);
             Draw.SetFillColor(128);
             // Drawing drone wings.
             Draw.Quad(new Vector2(droneX - 45, droneY - 35), new Vector2(droneX - 30, droneY - 35), new Vector2(droneX - 30, droneY + 30), new Vector2(droneX - 45, droneY + 30));
@@ -75,10 +76,13 @@ namespace MohawkGame2D
             Draw.SetFillColor(96);
             Draw.Circle(droneX, droneY, 5);
 
-            if (!isFollowing) // Drawing marker for the target position if the drone isn't following the mouse.
+            if (!isFollowing) // Drawing target at the target position if the drone isn't following the mouse.
             {
-                Draw.SetFillColor(Color.Red);
-                Draw.Circle(targetPos, 5);
+                Draw.SetFillColor(new Color(0, 0));
+                Draw.SetLineColor(Color.Red);
+                Draw.Circle(targetPos, 10);
+                Draw.Line(new Vector2(targetPos.X, targetPos.Y + 15), new Vector2(targetPos.X, targetPos.Y - 15));
+                Draw.Line(new Vector2(targetPos.X + 15, targetPos.Y), new Vector2(targetPos.X - 15, targetPos.Y));
             }
             
         }
